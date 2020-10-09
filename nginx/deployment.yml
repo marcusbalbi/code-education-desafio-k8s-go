@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: code-education-rocks-nginx
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: code-education-rocks-nginx
@@ -16,7 +16,7 @@ spec:
         - name: nginx
           image: nginx:latest
           ports:
-            - containerPort: 8000
+            - containerPort: 80
           volumeMounts:
             - mountPath: /etc/nginx/conf.d
               name: nginx-conf-code-education-rocks
