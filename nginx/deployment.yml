@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: code-education-rocks-nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: code-education-rocks-nginx
+  template:
+    metadata:
+      labels:
+        app: code-education-rocks-nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:latest
+          ports:
+            - containerPort: 8000
+          volumeMounts:
+            - mountPath: /etc/nginx/conf.d
+              name: nginx-conf-code-education-rocks
+              readOnly: true
+      volumes:
+        - name: nginx-conf-code-education-rocks
+          configMap:
+            name: nginx-conf-code-education-rocks
+            items:
+              - key: nginx.conf
+                path: nginx.conf

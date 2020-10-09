@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-conf-code-education-rocks
+data:
+  nginx.conf: |
+
+    server {
+      listen 80;
+
+      location / {
+        proxy_pass http://code-education-rocks-goapi:8000;
+      }
+    }
