@@ -1,0 +1,9 @@
+steps:
+
+- id: "Rodando Testes"
+  name: 'golang'
+  args: ['go', 'test', './...']
+
+- id: "Rodando Imagem"
+  name: 'docker'
+  args: ['run', '-t', 'marcusbalbi/code-education-go-api:latest']
