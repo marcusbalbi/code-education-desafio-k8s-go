@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: code-education-rocks-goapi
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 8000
+  selector:
+    app: code-education-rocks-goapi
